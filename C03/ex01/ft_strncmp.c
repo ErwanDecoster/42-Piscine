@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edecoste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 09:21:11 by edecoste          #+#    #+#             */
-/*   Updated: 2022/09/01 10:40:52 by edecoste         ###   ########lyon.fr   */
+/*   Created: 2022/09/06 10:31:15 by edecoste          #+#    #+#             */
+/*   Updated: 2022/09/09 09:57:17 by edecoste         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	write(1, &c, 1);
+	unsigned int	i;
+
+	i = 0;
+	while (s1[i] && s1[i] == s2[i] && n > 0)
+	{
+		n--;
+		i++;
+	}
+	if (n == 0)
+		return (0);
+	return (s1[i] - s2[i]);
 }

@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edecoste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 09:21:11 by edecoste          #+#    #+#             */
-/*   Updated: 2022/09/01 10:40:52 by edecoste         ###   ########lyon.fr   */
+/*   Created: 2022/09/11 14:40:40 by edecoste          #+#    #+#             */
+/*   Updated: 2022/09/11 16:04:09 by edecoste         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int	ft_fibonacci(int index)
 {
-	write(1, &c, 1);
+	if (index < 0)
+		return (-1);
+	if (index == 0 || index == 1)
+		return (index);
+	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }

@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edecoste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 09:21:11 by edecoste          #+#    #+#             */
-/*   Updated: 2022/09/01 10:40:52 by edecoste         ###   ########lyon.fr   */
+/*   Created: 2022/09/04 14:58:21 by edecoste          #+#    #+#             */
+/*   Updated: 2022/09/06 13:39:18 by edecoste         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	write(1, &c, 1);
+	unsigned int	i;
+
+	i = 0;
+	while (src[i] && i < n)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }

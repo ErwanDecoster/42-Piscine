@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edecoste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 09:21:11 by edecoste          #+#    #+#             */
-/*   Updated: 2022/09/01 10:40:52 by edecoste         ###   ########lyon.fr   */
+/*   Created: 2022/09/06 12:20:08 by edecoste          #+#    #+#             */
+/*   Updated: 2022/09/06 18:29:04 by edecoste         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+char	*ft_strcat(char *dest, char *src)
 {
-	write(1, &c, 1);
+	int	i;
+	int	ii;
+
+	i = 0;
+	ii = 0;
+	while (dest[i])
+		i++;
+	while (src[ii])
+	{
+		dest[i] = src[ii];
+		i++;
+		ii++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edecoste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 09:21:11 by edecoste          #+#    #+#             */
-/*   Updated: 2022/09/01 10:40:52 by edecoste         ###   ########lyon.fr   */
+/*   Created: 2022/09/07 16:22:06 by edecoste          #+#    #+#             */
+/*   Updated: 2022/09/12 10:26:24 by edecoste         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void	ft_putnbr(int nb)
 {
-	write(1, &c, 1);
+	int		i;
+	char	res;
+
+	i = 0;
+	if (nb == -2147483648)
+		write(1, "-2147483648", 11);
+	else
+	{
+		if (nb < 0)
+		{
+			write(1, "-", 1);
+			nb = -nb;
+		}
+		if (nb > 9)
+			ft_putnbr(nb / 10);
+		res = (nb % 10) + '0';
+		write(1, &res, 1);
+	}
 }

@@ -1,18 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edecoste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 09:21:11 by edecoste          #+#    #+#             */
-/*   Updated: 2022/09/01 10:40:52 by edecoste         ###   ########lyon.fr   */
+/*   Created: 2022/09/13 16:57:16 by edecoste          #+#    #+#             */
+/*   Updated: 2022/09/14 11:49:14 by edecoste         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdlib.h>
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+char	*ft_strcpy(char *dest, char *src)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+char	*ft_strdup(char *src)
+{
+	int		i;
+	char	*dest;
+
+	i = 0;
+	while (src[i])
+		i++;
+	dest = malloc(++i * sizeof(char));
+	return (ft_strcpy(dest, src));
 }

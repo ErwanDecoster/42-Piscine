@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edecoste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 09:21:11 by edecoste          #+#    #+#             */
-/*   Updated: 2022/09/01 10:40:52 by edecoste         ###   ########lyon.fr   */
+/*   Created: 2022/09/08 10:10:12 by edecoste          #+#    #+#             */
+/*   Updated: 2022/09/15 09:31:00 by edecoste         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int	ft_atoi(char *str)
 {
-	write(1, &c, 1);
+	int	i;
+	int	m;
+	int	num;
+
+	i = 0;
+	m = 1;
+	num = 0;
+	while (str[i] > 8 & str[i] < 14 || str[i] == ' ')
+		i++;
+	while (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			m *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+		num = num * 10 + (str[i++] - '0');
+	return (num * m);
 }
